@@ -9,7 +9,7 @@ client.on('ready', () => {
 });
 
 const chart = 'https://www.cleardarksky.com/c/Kelownacsk.gif';
-const channelId = '887543518854258710'; // this is the announcement channel
+const channelId = '887543518854258714'; // this is the announcement channel
 const currDateTime = () => new Date().toLocaleString("en-US", {timeZone: "America/Vancouver", weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric'});
 
 let scheduledMessage = new cron.CronJob('00 05 00 * * *', () => {
