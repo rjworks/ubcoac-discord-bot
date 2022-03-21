@@ -10,12 +10,14 @@ client.on('ready', () => {
 
 const chart = 'https://www.cleardarksky.com/c/Kelownacsk.gif';
 const channelId = '887543518854258710'; // this is the announcement channel
+const currDateTime = () => new Date().toLocaleString("en-US", {timeZone: "America/Vancouver", weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric'});
+
 let scheduledMessage = new cron.CronJob('00 05 00 * * *', () => {
-    //00 05 00 * * *
-    // This runs every day at 00:05:00
+    // 00 05 00 * * *
+    // This runs every day at 00:05:00 aka 12:05 am
     let channel = client.channels.cache.get(channelId);
     channel.send({
-        content:`As of ${new Date().toString()}`,
+        content:`As of ${currDateTime()}`,
         files: [{
             attachment: chart,
             name: 'chart.png'
@@ -36,7 +38,7 @@ client.on('messageCreate', msg => {
         switch(command) {
             case "chart":
                 msg.channel.send({
-                    content:`As of ${new Date().toString()}`,
+                    content:`As of ${currDateTime()}`,
                     files: [{
                         attachment: chart,
                         name: 'chart.png'
