@@ -25,7 +25,6 @@ let scheduledMessage = new cron.CronJob('00 05 00 * * *', () => {
 
 scheduledMessage.start()
 
-
 client.on('messageCreate', msg => {
     if(msg.content === `<@!${client.user.id}>`) {
         msg.reply('Hi there')
