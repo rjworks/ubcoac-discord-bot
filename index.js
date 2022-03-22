@@ -23,7 +23,7 @@ let scheduledMessage = new cron.CronJob('00 05 00 * * *', () => {
             name: 'chart.png'
         }]
     });
-});
+}, null, true, 'America/Vancouver');
 
 scheduledMessage.start()
 
